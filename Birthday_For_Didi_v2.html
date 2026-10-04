@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>For My Favourite Person ♡</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;overflow:hidden;font-family:Georgia,serif;color:#4d3040;background:linear-gradient(135deg,#fff1f6,#f5eaff,#fff8e8)}
+.screen{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:22px;opacity:0;pointer-events:none;transform:translateY(14px) scale(.98);transition:.65s}
+.screen.active{opacity:1;pointer-events:auto;transform:none}
+.card{width:min(700px,100%);max-height:92vh;overflow:auto;padding:38px 27px;border-radius:32px;background:rgba(255,255,255,.76);backdrop-filter:blur(14px);box-shadow:0 20px 65px rgba(90,45,75,.16);border:1px solid rgba(255,255,255,.9);text-align:center}
+h1{font-size:clamp(2.4rem,9vw,5rem);margin:8px 0 15px}
+h2{font-size:clamp(1.8rem,7vw,3.1rem);margin:5px 0 18px}
+p{font-size:1.08rem;line-height:1.8}
+button{border:0;border-radius:999px;padding:14px 26px;margin:14px 5px;font-size:1rem;cursor:pointer;color:#fff;background:#a65b80;box-shadow:0 8px 22px #a65b8035}
+button:active{transform:scale(.97)}
+.heart{font-size:3.5rem;animation:pulse 1.6s infinite}
+@keyframes pulse{50%{transform:scale(1.12)}}
+.notes{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin:28px 0}
+.note{width:145px;height:125px;border-radius:8px 8px 15px 15px;background:#fff5b8;box-shadow:0 8px 18px #75504a20;display:flex;align-items:center;justify-content:center;cursor:pointer;transform:rotate(-2deg);transition:.4s;font-family:"Comic Sans MS",cursive}
+.note:nth-child(2){background:#ffdce8;transform:rotate(3deg)}
+.note:nth-child(3){background:#dff5dc;transform:rotate(-4deg)}
+.note.open{transform:rotate(0) scale(1.06)}
+.note span{padding:10px;font-size:.95rem}
+.longnote{display:none;text-align:left;background:#fffdf4;padding:25px;border-radius:8px;line-height:1.9;box-shadow:0 8px 25px #75504a12;animation:appear .6s}
+.longnote.show{display:block}
+@keyframes appear{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:none}}
+.cake{font-size:7rem;cursor:pointer;animation:float 2s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-9px)}}
+.lights{font-size:2.2rem;letter-spacing:10px;margin:15px 0;animation:glow 1.5s infinite alternate}
+@keyframes glow{to{text-shadow:0 0 18px #ffd76d}}
+.message{text-align:left;background:#fff8fb;padding:22px;border-radius:20px;line-height:1.85}
+#confetti{position:fixed;inset:0;pointer-events:none;z-index:20}
+.conf{position:absolute;font-size:23px;animation:fall 3s linear forwards}
+@keyframes fall{to{transform:translateY(110vh) rotate(720deg);opacity:0}}
+.dots{position:fixed;bottom:13px;left:0;right:0;text-align:center;z-index:10}
+.dot{display:inline-block;width:7px;height:7px;background:#d2a9ba;border-radius:50%;margin:4px}.dot.on{background:#8d4e70;transform:scale(1.4)}
+.small{opacity:.65;font-size:.92rem}
+</style>
+</head>
+<body>
+<div id="confetti"></div>
+
+<section class="screen active" id="s1">
+<div class="card">
+<div class="heart">♡</div>
+<p class="small">okay... don't ask questions yet</p>
+<h1>I have a little surprise for you.</h1>
+<p>And yes, you actually have to click the button.</p>
+<button onclick="go(2)">Open it ♡</button>
+</div>
+</section>
+
+<section class="screen" id="s2">
+<div class="card">
+<h2>There are some notes for you.</h2>
+<p>Don't expect all of them to make sense. That's part of the surprise.</p>
+<div class="notes">
+<div class="note" onclick="openNote(this,0)"><span>Open me ♡</span></div>
+<div class="note" onclick="openNote(this,1)"><span>Okay... this one.</span></div>
+<div class="note" onclick="openNote(this,2)"><span>Maybe this is it?</span></div>
+</div>
+<div id="longnote" class="longnote">
+<p><strong>Okay. Now you found the actual one.</strong></p>
+<p>Happy Birthday to the person who is so much more than just my older sister. You are genuinely my second mother, one of the biggest inspirations in my life, and one of the greatest things God could have given me.</p>
+<p>I don't think I can properly explain how fucking grateful I am that I have an older sister like you. If I didn't have you, I genuinely don't know how I would have survived half the shit this world throws at us. You've been someone I can look up to, learn from, run to, annoy, and somehow still expect to love me afterwards.</p>
+<p>You have seen so many versions of me, and somehow you've still stayed. And that means more to me than I probably ever say out loud.</p>
+<p>I'm so proud of you. And I hope you know that you deserve every good thing coming your way.</p>
+<button onclick="go(3)">There's something else →</button>
+</div>
+</div>
+</section>
+
+<section class="screen" id="s3">
+<div class="card">
+<div class="heart">✦</div>
+<h2>Now listen to me.</h2>
+<div class="message">
+<p>You are going to clear your <strong>October exams with the best marks</strong>. We believe in you.</p>
+<p>You are going to achieve everything you work for. Every difficult phase you've gone through has taught you something, but it does <strong>not</strong> get to decide what happens next.</p>
+<p>All the bad things that happened are coming to an end. This next part of your life is going to be better, brighter, calmer and yours.</p>
+<p>And whenever you forget how capable you are, I hope you remember that there is at least one annoying little sister sitting somewhere thinking, <strong>“Yeah. She's going to do it.”</strong></p>
+</div>
+<button onclick="go(4)">Okay, now the important part 🎂</button>
+</div>
+</section>
+
+<section class="screen" id="s4">
+<div class="card">
+<h2>Make a wish.</h2>
+<p>Your candles are waiting.</p>
+<div class="cake" onclick="cake()">🕯️🎂🕯️</div>
+<p id="cakeText" class="small">Tap the cake when you're ready...</p>
+</div>
+</section>
+
+<section class="screen" id="s5">
+<div class="card">
+<div class="lights">✦ ✧ ★ ✧ ✦</div>
+<h2>Happy Birthday, Didi ♡</h2>
+<div class="message">
+<p>Look at you. Another year, another chapter, another chance to become everything you've always wanted to be.</p>
+<p>I hope this year is kinder to you. I hope you get the things you've been quietly praying for. I hope you laugh more, stress less, and finally get to see how much the people around you love and admire you.</p>
+<p>And most importantly, I hope you never forget that you have me. Through the stupid days, the amazing days, the “I have no idea what I'm doing” days, the celebrations, the failures, everything.</p>
+<p>You're stuck with me.</p>
+</div>
+<button onclick="go(6)">One final thing...</button>
+</div>
+</section>
+
+<section class="screen" id="s6">
+<div class="card">
+<div class="heart">♡</div>
+<h2>And yes, you heard me right...</h2>
+<h1 style="font-size:clamp(2.5rem,10vw,5.5rem)">Dr. Molly.</h1>
+<p>Because I'm not just wishing you a happy birthday.</p>
+<p>I'm wishing you the life you keep working so damn hard for.</p>
+<div class="message">
+<p>I'll be there cheering for you when you get there.</p>
+<p>Happy Birthday to my sister, my second mother, my inspiration, and one of my favourite people in this entire world.</p>
+<p><strong>I love you. More than this website, more than this paragraph, and probably more than I know how to say.</strong></p>
+</div>
+<p class="small">— your annoying little sister ♡</p>
+</div>
+</section>
+
+<div class="dots" id="dots"></div>
+<script>
+let current=1, opened=[false,false,false];
+function go(n){document.getElementById('s'+current).classList.remove('active');current=n;document.getElementById('s'+current).classList.add('active');updateDots();if(n===2)burst(15)}
+function updateDots(){document.getElementById('dots').innerHTML=[1,2,3,4,5,6].map(n=>`<span class="dot ${n===current?'on':''}"></span>`).join('')}
+function openNote(el,i){
+  el.classList.add('open');
+  if(i<2){el.querySelector('span').textContent=i===0?'...that was empty 😭':'nope, not this one 😭'}
+  else{
+    el.querySelector('span').textContent='YOU FOUND IT ♡';
+    document.getElementById('longnote').classList.add('show');
+    burst(20);
+  }
+}
+function cake(){
+ document.getElementById('cakeText').textContent='Wish made. ♡';
+ burst(90);
+ setTimeout(()=>go(5),1400);
+}
+function burst(count){
+ const box=document.getElementById('confetti'), chars=['♡','✦','✧','♥','★','✿'];
+ for(let i=0;i<count;i++){
+  const x=document.createElement('span');x.className='conf';x.textContent=chars[Math.floor(Math.random()*chars.length)];
+  x.style.left=Math.random()*100+'vw';x.style.top=(-10-Math.random()*20)+'vh';
+  x.style.animationDelay=Math.random()*.6+'s';box.appendChild(x);setTimeout(()=>x.remove(),3600);
+ }
+}
+updateDots();
+</script>
+</body>
+</html>
